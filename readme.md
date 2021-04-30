@@ -36,3 +36,16 @@ L'application à ce stade permet de gérer les vols de la journée en cours.
     - Créer un ou deux vols
         > numero de vol statique : ex : AH2349
 __NB__ : Eviter le copier/coller de code.
+
+# Modification
+
+# Entité Flight
+
+On va ajouter un attribut `seat` (integer, nombre de sièges restants)
+Nouvelle migration
+Modifictaion des fixtures
+
+- On ajoute l'alimentation via un setter : setSeat()
+- On va créer plusieurs nouveaux vols (travail de boucle)
+    (pour le moment les numéros de vols et les horaires restent les mêmes, dans les fixtures)
+

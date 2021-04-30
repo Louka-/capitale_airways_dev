@@ -49,6 +49,12 @@ class Flight
      */
     private $arrival;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $seat;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -125,4 +131,18 @@ class Flight
 
         return $this;
     }
+
+    public function getSeat(): ?int
+    {
+        return $this->seat;
+    }
+
+    public function setSeat(?int $seat): self
+    {
+        $this->seat = $seat;
+
+        return $this;
+    }
+
+
 }
