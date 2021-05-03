@@ -49,3 +49,48 @@ Modifictaion des fixtures
 - On va créer plusieurs nouveaux vols (travail de boucle)
     (pour le moment les numéros de vols et les horaires restent les mêmes, dans les fixtures)
 
+# Automatisation 
+L'application est générée automatiquement (du moins le coeur) avec :
+```bash
+symfony console make:crud
+```
+
+## Personnaliser
+Ajouter bootstrap pour les pages, le thème de formulaire
+Ajouter votre style au besoin
+
+## Gérer la classe FlightType
+- tous les champs ne sont pas requis (?)
+- la relation avec City
+- Ajouter les contraintes
+
+# Créer une classe de service
+## Création
+- On crée une classe dans le namespace App\Services\FlightServices
+- Ce service va permmettre d'attribuer un numéro de vol aléatoire composé de 2 lettres et 4 chiffres lors de la création d'un vol.
+## Utilisation dans les fixtures
+__NB__ : 
+  - On ne peut pas injecter directement dans la méthode load()
+  - Il faut passer par un __construct(). On injecte le service
+  - On crée pour cela un attribut private
+  - Puis dans la méthode load()
+```bash
+$flight
+    ->setNumero($this->flightService->getFlightNumber())
+```
+
+# La sécurité
+
+# Entité User
+```bash
+symfony console make:user
+# en retour
+ created: src/Entity/User.php
+ created: src/Repository/UserRepository.php
+ updated: src/Entity/User.php
+ updated: config/packages/security.yaml
+```
+
+
+
+

@@ -1,0 +1,5 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-success my-3">{{ button_label|default('Sauvegarder') }}</button>
+    <a href="{{ path('flight_type_index') }}" class="btn btn-info">Retour à l'accueil</a>
+{{ form_end(form) }}

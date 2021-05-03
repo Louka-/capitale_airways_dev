@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Flight{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-6">
+    <h1 class="my-3">Nouveau vol</h1>
+
+    {{ include('flight_type/_form.html.twig') }}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

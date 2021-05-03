@@ -4,12 +4,20 @@ namespace App\DataFixtures;
 
 use App\Entity\City;
 use App\Entity\Flight;
+use App\Services\FlightService;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use phpDocumentor\Reflection\Types\Boolean;
 
 class AppFixtures extends Fixture
 {
+    
+    private $flightService;
+
+    function __construct(FlightService $fs)
+    {
+        $this->flightService = $fs;
+    }
     public function load(ObjectManager $manager)
     {
         $city = [
@@ -31,7 +39,7 @@ class AppFixtures extends Fixture
         for($i=0;$i<=3;$i++):
             $flight = new Flight;
             $flight
-                ->setNumero('HG5687')
+                ->setNumero($this->flightService->getFlightNumber())
                 ->setSchedule(\DateTime::createFromFormat('H:i','08:00'))
                 ->setPrice(mt_rand(100,500))
                 ->setSeat(mt_rand(1,50))
@@ -42,6 +50,6 @@ class AppFixtures extends Fixture
         endfor;
 
         $manager->flush();
-        
+
     }
 }

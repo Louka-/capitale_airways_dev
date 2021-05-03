@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Flight{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center mt-3">
+        <div class="col-6">
+    <h1 class="my-5 text-center">Vol</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ flight.id }}</td>
+            </tr>
+            <tr>
+                <th>Numero</th>
+                <td>{{ flight.numero }}</td>
+            </tr>
+            <tr>
+                <th>Schedule</th>
+                <td>{{ flight.schedule ? flight.schedule|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ flight.price }} Euros</td>
+            </tr>
+            <tr>
+                <th>Reduction</th>
+                <td>{{ flight.reduction ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Seat</th>
+                <td>{{ flight.seat }}</td>
+            </tr>
+            <tr>
+                <th>Departure</th>
+                <td>{{ flight.departure.name }}</td>
+            </tr>
+            <tr>
+                <th>Arrival</th>
+                <td>{{ flight.arrival.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('flight_type_index') }}" class="btn btn-info">Retour à l'accueil</a>
+
+    <a href="{{ path('flight_type_edit', {'id': flight.id}) }}" class="btn btn-success">Editer</a>
+
+    {{ include('flight_type/_delete_form.html.twig') }}
+            </div>
+    </div>
+</div>
+{% endblock %}
